@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 
 export default function ClientImage() {
     const [timestamp, setTimestamp] = useState(Date.now());
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 
     useEffect(() => {
       const interval = setInterval(() => {
@@ -17,7 +18,7 @@ export default function ClientImage() {
     <div className="mb-8 w-full flex justify-center">
         <div className="w-[800px] h-[400px] relative">
         <img
-          src={`https://ijetbteoxyzikljccfrs.supabase.co/storage/v1/object/public/rtsp-stream/sf_hub_stream.jpg?t=${timestamp}`}
+          src={`${supabaseUrl}/storage/v1/object/public/rtsp-stream/sf_hub_stream.jpg?t=${timestamp}`}
           alt="Traffic Camera"
           width={800}
           height={400}
